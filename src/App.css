@@ -9,3 +9,37 @@
   background-color: white !important;
   color: rgb(65 157 173) !important;
 }
+#main .header_buttons{
+  background: pink;
+  color: rgb(138, 80, 114);
+  font-weight: bold;
+  margin-top: 11px;
+  margin-right: 20px;
+  float: right;
+}
+#search_input{
+  background: #b8faf1;
+  color: #8d5073;
+  margin-top: 11px;
+}
+#search_input-label{
+  color: #8d5073;
+}
+.MuiFilledInput-root {
+  background-color: white !important;
+}
+#main .footer_i{
+  float:left
+}
+.footer_t{
+  margin-top: 3px;
+  padding-left: 5px;
+  float: left;
+}
+#main .footer{
+  margin-top: 40px;
+}
+#main .footer_c{
+  padding-bottom: 20px;
+}
+
