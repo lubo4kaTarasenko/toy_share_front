@@ -1,9 +1,10 @@
 #home_cont{
   width: 70%;
   margin: auto;
-  height: 600px;
+  height: 550px;
   margin-top: 30px;
   margin-bottom: 30px;
+  padding-top: 30px
 }
 .MuiAppBar-colorPrimary {
   background-color: white !important;
@@ -25,6 +26,11 @@
 #search_input-label{
   color: #8d5073;
 }
+
+#main .header_buttons a{
+  color: rgb(138, 80, 114);
+  text-decoration: none;
+}
 .MuiFilledInput-root {
   background-color: white !important;
 }
@@ -41,5 +47,14 @@
 }
 #main .footer_c{
   padding-bottom: 20px;
+}
+#home_cont ul{
+  color:  rgb(65 157 173)
+}
+#home_cont li{
+  text-align: justify;
+  margin-left: 50px;
+  margin-right: 40px;
+  
 }
 

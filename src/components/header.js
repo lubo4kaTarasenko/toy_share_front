@@ -13,10 +13,16 @@ export default function Header(){
             <Grid item xs={3} md={2} lg={3} className='header_item'> <h2>ToyShare</h2></Grid> 
             <Grid item xs={3} md={2} lg={4} className='header_item'><SearchComponent/></Grid>
             <Grid item xs={5} md={3} lg={5} className='header_item'>
-              <Button className='header_buttons' variant='contained' size='large'>Home</Button>
-              <Button className='header_buttons' variant='contained' size='large'>Profile</Button>
-              <Button className='header_buttons' variant='contained' size='large'>About us</Button>
-              <Button className='header_buttons' variant='contained' size='large'>Log out</Button>
+              <Button className='header_buttons' variant='contained' size='large'>
+              <Link to="/home">Додому</Link>
+              </Button>
+              <Button className='header_buttons' variant='contained' size='large'>
+                <Link to="/profile">Профіль</Link>
+              </Button>
+              <Button className='header_buttons' variant='contained' size='large'>
+                <Link to="/aboutUs">Про нас</Link>
+              </Button>
+              <Button className='header_buttons' variant='contained' size='large'>Вийти</Button>
             </Grid>
           </Grid>
         </Toolbar>
