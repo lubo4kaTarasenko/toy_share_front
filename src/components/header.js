@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import {Home, AccountBox } from '@material-ui/icons';
 import { pink } from '@material-ui/core/colors';
 import SearchComponent from './search';
+import { fullPath } from '../services/baseUrl';
 
 export default function Header(){
   return(
@@ -17,7 +18,7 @@ export default function Header(){
               <Link to="/home">Додому</Link>
               </Button>
               <Button className='header_buttons' variant='contained' size='large'>
-                <Link to="/profile">Профіль</Link>
+                <a href={fullPath('/users/sign_in')} >Профіль</a>                
               </Button>
               <Button className='header_buttons' variant='contained' size='large'>
                 <Link to="/aboutUs">Про нас</Link>
@@ -29,3 +30,4 @@ export default function Header(){
    </AppBar>
   ) 
 }
+//<Link to="/profile">Профіль</Link>
