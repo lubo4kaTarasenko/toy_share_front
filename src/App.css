@@ -1,5 +1,30 @@
+@media screen and (min-width: 600px) {
+  #home_cont{
+    width: 70%;
+  }
+  #add_product{
+    margin-left: 20px;
+  }
+  #main .header_buttons{
+    background: pink;
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #main{
+    font-size: small;
+  }
+  #main .header_buttons{
+    color: rgb(138, 80, 114);
+    font-weight: bold;
+    margin-top: 11px;
+    margin-right: 10px;
+    float: right;
+  }
+}
+
 #home_cont{
-  width: 70%;
   margin: auto;
   height: 550px;
   margin-top: 30px;
@@ -11,11 +36,9 @@
   color: rgb(65 157 173) !important;
 }
 #main .header_buttons{
-  background: pink;
   color: rgb(138, 80, 114);
   font-weight: bold;
   margin-top: 11px;
-  margin-right: 20px;
   float: right;
 }
 #search_input{
@@ -65,8 +88,6 @@
   margin-right: 20px;
 }
 #add_product{
-  width: 30%;
-  margin-left: 20px;
   background-color: #b8f4e882;
   padding: 20px;
 }
@@ -92,3 +113,4 @@
 #add_product h3{
   color:  #419eb0;
 }
+
