@@ -10,7 +10,7 @@ export default function HomePage() {
           <Grid item  xs={12} md={8} lg={5} >
             <AddProduct/>
           </Grid>
-          
+          <Grid item xs={12} md={4} lg={7} ></Grid>          
         </Grid>     
           
       </Paper>

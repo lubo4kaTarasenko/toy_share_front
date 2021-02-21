@@ -90,6 +90,7 @@
 #add_product{
   background-color: #b8f4e882;
   padding: 20px;
+  color: #419eb0;
 }
 #main .upload_buttons{
   border: 2px solid #abf2e2;
@@ -110,7 +111,5 @@
 #product_name-label{
   color: #419eb0;
 }
-#add_product h3{
-  color:  #419eb0;
-}
+
 
