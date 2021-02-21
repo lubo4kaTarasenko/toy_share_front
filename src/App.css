@@ -57,4 +57,38 @@
   margin-right: 40px;
   
 }
+#main .form_buttons{
+  background: pink;
+  color: rgb(138, 80, 114);
+  font-weight: bold;
+  margin-top: 11px;
+  margin-right: 20px;
+}
+#add_product{
+  width: 30%;
+  margin-left: 20px;
+  background-color: #b8f4e882;
+  padding: 20px;
+}
+#main .upload_buttons{
+  border: 2px solid #abf2e2;
+  color: #419eb0;
+  background: white;
+}
+#main .form_input{
+  border: 2px solid #abf2e2;
+  color: #419eb0;
+  margin-bottom: 20px;
+  width: 300px;
+  background: white;
+}
+#main .form_input:hover{
+  text-decoration: none;
+}
 
+#product_name-label{
+  color: #419eb0;
+}
+#add_product h3{
+  color:  #419eb0;
+}
