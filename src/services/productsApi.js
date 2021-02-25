@@ -2,7 +2,7 @@ import { fullPath } from "./baseUrl";
 
 export default class ProductsApi{
   createProduct(product){
-    return fetch(fullPath(`/products`),{
+    return fetch(fullPath(`/product`),{
       "method": "POST",
       headers: {
         'Content-Type': 'application/json',

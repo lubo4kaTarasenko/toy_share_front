@@ -3,6 +3,8 @@ import {Paper, TextField, TextareaAutosize, Button} from '@material-ui/core';
 import DropZone from './dropZone';
 import { useAtom } from 'jotai'
 import { filesAtom } from '../atoms/appAtoms'
+import ProductsApi from '../services/productsApi';
+
 
 export default function AddProduct() {
   const [files, setFiles] = useAtom( filesAtom)
@@ -34,5 +36,11 @@ export default function AddProduct() {
        files: files
      }
      console.log(product)
+     new ProductsApi().createProduct(product).then(
+      (result) => {
+        console.log(result)  
+        setFiles([])     
+      },
+    )
    }
 }

@@ -9,6 +9,13 @@
     background: pink;
     margin-right: 20px;
   }
+  #add_product{
+    width: 400px
+  }
+  #main .category_btn{
+    font-size: 15px;
+    font-weight: bold;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -21,6 +28,9 @@
     margin-top: 11px;
     margin-right: 10px;
     float: right;
+  }
+  #main .category_btn{
+    font-size: small;
   }
 }
 
@@ -111,5 +121,21 @@
 #product_name-label{
   color: #419eb0;
 }
+
+#categories {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#main .categories_grid{
+  margin-top: 30px;
+}
+#main .category_btn{
+  color: #4b9dad;
+}
+#main .category_icon{
+  margin-right: 15px;
+}
+
 
 
