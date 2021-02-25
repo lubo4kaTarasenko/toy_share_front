@@ -15,4 +15,18 @@ export default class ProductsApi{
        console.log(err);
      });
   }
+
+  getListByParams(p) {
+    return this.getList(p.search, p.page, p.category, p.subcategory)
+  }
+
+  getList(q, p, c, sc){
+    return fetch(fullPath(`/products?q=${q}&p=${p}&c=${c}&sc=${sc}`))
+    .then(res => res.json())
+  }
+
+  getProduct(name){
+    return fetch(fullPath(`/product?name=${name}`))
+    .then(res => res.json())
+  }
 }
