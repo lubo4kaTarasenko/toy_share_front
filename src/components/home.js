@@ -1,5 +1,5 @@
 import React, { useEffect} from 'react'
-import {Grid, Paper} from '@material-ui/core';
+import {Grid, Paper, Typography} from '@material-ui/core';
 import AddProduct from './addProduct';
 import CategoriesList from './categoriesList';
 import {categoriesAtom, productsAtom, pagesAtom, paramsAtom  } from '../atoms/appAtoms'
@@ -8,6 +8,7 @@ import ProductsApi from '../services/productsApi';
 import ProductsList from './productsList';
 import { useAtom } from 'jotai'
 import cookie from 'react-cookies'
+import Pagination from '@material-ui/lab/Pagination';
 
 export default function HomePage() {
   const [products, setProducts] = useAtom(productsAtom)
@@ -46,7 +47,7 @@ export default function HomePage() {
     return (
       <React.Fragment>
         <Grid container>
-          <Grid item xs={12} sm={6} md={2} sm={2} className='categories_grid'>
+          <Grid item xs={12} sm={6} md={2} lg={2} className='categories_grid'>
             <Paper>
               <CategoriesList/>
             </Paper>
@@ -58,6 +59,19 @@ export default function HomePage() {
               </Paper>
             </Grid>  
        
+        </Grid>
+        <Grid container > 
+          <Grid item xs={1} sm={5}></Grid>
+          <Grid item xs={11} sm={4} className='page_grid'>
+            <Paper>            
+            <Pagination count={pages} variant="outlined" shape="rounded" id='paginator'
+              onChange={(e, page)=>{                
+                params.page = page;
+                setParams(params)
+                loadListOfProducts(params) 
+              } }
+            /> </Paper>
+          </Grid>
         </Grid>
       </React.Fragment>
   )

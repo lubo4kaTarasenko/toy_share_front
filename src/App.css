@@ -54,12 +54,8 @@
   margin-top: 11px;
   float: right;
 }
-#search_input{
-  background: #b8faf1;
-  color: #8d5073;
-  margin-top: 11px;
-}
-#search_input-label{
+
+#main #search_complete-label{
   color: #8d5073;
 }
 
@@ -149,6 +145,9 @@
   text-align: center;
   padding: 5px;
 }
-
+#paginator{
+  margin-bottom: 30px;
+  color: white;
+}
 
 

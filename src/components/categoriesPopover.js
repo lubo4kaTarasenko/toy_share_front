@@ -5,7 +5,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import {ArrowRight } from '@material-ui/icons';
 import { useAtom } from 'jotai'
-//import {productsAtom, pagesAtom, categoriesAtom, paramsAtom } from '../atoms/shopAtoms'
+import {productsAtom, pagesAtom, categoriesAtom, paramsAtom } from '../atoms/appAtoms'
 import ProductsApi from '../services/productsApi';
 
 const useStyles = makeStyles((theme) => ({
@@ -15,10 +15,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function CategoriesPopover(props) {
-  // const [products, setProducts] = useAtom(productsAtom)
-  // const [pages, setPages] = useAtom(pagesAtom)
-  // const [categories, setCategories] = useAtom(categoriesAtom)
-  // const [params, setParams] = useAtom(paramsAtom)
+  const [products, setProducts] = useAtom(productsAtom)
+  const [pages, setPages] = useAtom(pagesAtom)
+  const [categories, setCategories] = useAtom(categoriesAtom)
+  const [params, setParams] = useAtom(paramsAtom)
 
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -56,7 +56,7 @@ export default function CategoriesPopover(props) {
         <Typography className={classes.typography}>
           {props.category.subcategories.map(sc =>
               <div key={sc} id={sc} style={{color: '#bd748a', cursor: 'pointer', fontWeight: 'bold'}}>
-                <span onClick={() => {}}>{sc}</span>
+                <span onClick={() => {subcategoryChoose(sc)}}>{sc}</span>
                 <hr/>
               </div>           
             )}
@@ -64,29 +64,28 @@ export default function CategoriesPopover(props) {
       </Popover>
     </div>
   );
-  // function subcategoryChoose(sc){  
-  //   let elemsCategory = document.getElementsByClassName('checked_category');
-  //   [].forEach.call(elemsCategory, function(el) {
-  //     el.classList.remove("checked_category");
-  //   });
-  //   let elemsSubcategory = document.getElementsByClassName('checked_subcategory');
-  //   [].forEach.call(elemsSubcategory, function(el) {
-  //     el.classList.remove("subchecked_category");
-  //   });
-  //   const checked_subcategory = document.getElementById(`${sc}`)
-  //   checked_subcategory.classList.add('checked_subcategory');
-  //   //checked_category.parentNode.parentNode.classList.add('checked_category')
-  //   params.subcategory = sc;
-  //   setParams(params)
+  function subcategoryChoose(sc){  
+    let elemsCategory = document.getElementsByClassName('checked_category');
+    [].forEach.call(elemsCategory, function(el) {
+      el.classList.remove("checked_category");
+    });
+    let elemsSubcategory = document.getElementsByClassName('checked_subcategory');
+    [].forEach.call(elemsSubcategory, function(el) {
+      el.classList.remove("subchecked_category");
+    });
+    const checked_subcategory = document.getElementById(`${sc}`)
+    checked_subcategory.classList.add('checked_subcategory');
+    params.subcategory = sc;
+    setParams(params)
 
-  //   new ProductsApi().getListByParams(params).then(
-  //     (result) => {
-  //       dispatchUpdateState(result.products, result.pages)
-  //     },
-  //   )    
-  // }
-  // function dispatchUpdateState(products, pages){
-  //   setProducts(products)
-  //   setPages(pages)
-  // }
+    new ProductsApi().getListByParams(params).then(
+      (result) => {
+        dispatchUpdateState(result.products, result.pages)
+      },
+    )    
+  }
+  function dispatchUpdateState(products, pages){
+    setProducts(products)
+    setPages(pages)
+  }
 }
