@@ -18,11 +18,13 @@ export default function CategoriesSelector() {
   const [categories, setCategories] = useAtom(categoriesAtom)
   const classes = useStyles();
   const [category, setCategory] = useState(categories[0])
-  const [subcategory, setSubcategory] = useState(category.subcategories[0].name)
+  const [subcategory, setSubcategory] = useState(category.subcategories[0])
 
 
   const handleChangeCategory = (event) => {
-    setCategory(categories.find(el => el.name === event.target.value));
+    const newCat = categories.find(el => el.name === event.target.value);
+    setCategory(newCat);
+    setSubcategory(newCat.subcategories[0])
   };
   const handleChangeSubcategory = (event) => {
     setSubcategory(event.target.value);
