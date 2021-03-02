@@ -5,12 +5,13 @@ import { useAtom } from 'jotai'
 import { filesAtom } from '../atoms/appAtoms'
 import ProductsApi from '../services/productsApi';
 import CategoriesSelector from './categoriesSelector';
+import { FormatBoldTwoTone } from '@material-ui/icons';
 
 
 export default function AddProduct() {
   const [files, setFiles] = useAtom( filesAtom)
   const [showForm, setShowForm] = useState(false)
-  console.log(files)
+  //console.log(files)
     return (      
       showForm ? renderForm() : <Button onClick={() => {setShowForm(true)}} id='state_b' className='form_buttons'>Додати річ</Button>      
     )
@@ -40,20 +41,21 @@ export default function AddProduct() {
      const kind = document.querySelector('input[name="kind"]:checked').value;
      const category =  document.getElementById('category').value
      const subcategory =  document.getElementById('subcategory').value
+     let data = new FormData()
      const product = {
        name: name,
        description: description,
        kind: kind,
-       files: files,
        category: category,
        subcategory: subcategory
      }
-     console.log(product)
-     new ProductsApi().createProduct(product).then(
-      (result) => {
-        console.log(result)  
-        setFiles([])     
-      },
-    )
+     data.append("data", files[0])
+     data.append('product', JSON.stringify(product))
+     console.log(data)
+     new ProductsApi().createProduct(data).done((result) => {
+        console.log(result.message);
+      }).fail((err) => {
+      console.log("error for file upload", err);      
+      });
    }
 }
