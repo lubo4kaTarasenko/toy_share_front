@@ -55,11 +55,12 @@ export default function AddProduct() {
       n += 1
     })
 
-    //data.append("data", files[0])
     data.append('product', JSON.stringify(product))
-    console.log(data)
+
     new ProductsApi().createProduct(data).done((result) => {
-      console.log(result.message);
+      setShowForm(false)
+      setFiles([])
+      alert('Річ буде додана після перевірки адміністратором');
       }).fail((err) => {
       console.log("error for file upload", err);      
       });

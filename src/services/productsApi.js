@@ -18,7 +18,7 @@ export default class ProductsApi{
   // }
 
   createProduct(data){
-    $.ajax({
+    return $.ajax({
       method: "POST",
       url: fullPath(`/product`),
       data: data,
