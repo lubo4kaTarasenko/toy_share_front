@@ -35,27 +35,33 @@ export default function AddProduct() {
     </Paper>
     )
   }
-   function createProduct(){
-     const name = document.getElementById('product_name').value
-     const description = document.getElementById('description').value
-     const kind = document.querySelector('input[name="kind"]:checked').value;
-     const category =  document.getElementById('category').value
-     const subcategory =  document.getElementById('subcategory').value
-     let data = new FormData()
-     const product = {
-       name: name,
-       description: description,
-       kind: kind,
-       category: category,
-       subcategory: subcategory
-     }
-     data.append("data", files[0])
-     data.append('product', JSON.stringify(product))
-     console.log(data)
-     new ProductsApi().createProduct(data).done((result) => {
-        console.log(result.message);
+  function createProduct(){
+    const name = document.getElementById('product_name').value
+    const description = document.getElementById('description').value
+    const kind = document.querySelector('input[name="kind"]:checked').value;
+    const category =  document.getElementById('category').value
+    const subcategory =  document.getElementById('subcategory').value
+    let data = new FormData()
+    const product = {
+      name: name,
+      description: description,
+      kind: kind,
+      category: category,
+      subcategory: subcategory
+    }
+    let n = 0 
+    files.forEach( f => {
+      data.append(`data[${n}]`, f)
+      n += 1
+    })
+
+    //data.append("data", files[0])
+    data.append('product', JSON.stringify(product))
+    console.log(data)
+    new ProductsApi().createProduct(data).done((result) => {
+      console.log(result.message);
       }).fail((err) => {
       console.log("error for file upload", err);      
       });
-   }
-}
+    }
+  }
