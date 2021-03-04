@@ -58,7 +58,7 @@ export default function HomePage() {
             <Grid item  xs={12} sm={6} md={10} lg={10} >      
               <Paper id='home_cont'> 
                 {email ? <AddProduct/> : null}
-                <ProductsList/>
+                <ProductsList products={products}/>
               </Paper>
             </Grid>  
        

@@ -68,10 +68,10 @@ export default function SimpleTabs() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <GiveProducts/>
+        <GiveProducts kind={'подарую'} status={'published'}/>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        <GiveProducts kind={'обміняю'} status={'published'}/>
       </TabPanel>
       <TabPanel value={value} index={2}>
         Item Three

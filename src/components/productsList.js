@@ -4,16 +4,16 @@ import { useAtom } from 'jotai'
 import {productsAtom } from '../atoms/appAtoms'
 import { useState } from 'react'
 
-export default function ProductList() {
+export default function ProductList(props) {
   const [showProduct, setShowProduct] = useState(null);
-  const [products, setProducts] = useAtom(productsAtom)
+  //const [products, setProducts] = useAtom(productsAtom)
   
   // if(showProduct) {
   //   return productRedirect(showProduct.url_name)
   // }
   return (
     <div id='products'>
-      { products.map(product => {
+      { props.products.map(product => {
           return (
             <div onClick={() =>{ setShowProduct(product) }} key={product.id} className="product_block">
           <Paper className="product_container" >
