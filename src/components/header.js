@@ -1,13 +1,16 @@
-import {AppBar,Toolbar, Grid, IconButton, Button} from '@material-ui/core';
+import {AppBar,Toolbar, Grid, Button} from '@material-ui/core';
 import React from 'react';
 import { Link } from "react-router-dom";
 import {Home, AccountCircle, Info, PowerSettingsNew} from '@material-ui/icons';
 import { pink } from '@material-ui/core/colors';
 import SearchComponent from './search';
 import { fullPath } from '../services/baseUrl';
-import {  BrowserView,  MobileView,  isBrowser,  isMobile } from "react-device-detect";
+import { isMobile } from "react-device-detect";
+import { emailAtom } from '../atoms/appAtoms'
+import { useAtom } from 'jotai'
 
 export default function Header(){
+  const [email, setEmail] = useAtom(emailAtom)
   return(
     <AppBar position="static" style={{backgroundColor: pink}}> 
         <Toolbar className='nav_cont'> 
@@ -38,12 +41,11 @@ export default function Header(){
           <Link to="/home">Додому</Link>
         </Button>
         <Button className='header_buttons' variant='contained' size='large'>
-          <a href={fullPath('/users/sign_in')} >Профіль</a>                
+            {email? <Link to='/profile'> Профіль </Link> : <a href={fullPath('/users/sign_in')}>Профіль </a> }               
         </Button>
         <Button className='header_buttons' variant='contained' size='large'>
           <Link to="/aboutUs">Про нас</Link>
         </Button>
-        <Button className='header_buttons' variant='contained' size='large'>Вийти</Button>
       </React.Fragment>
     )
   }

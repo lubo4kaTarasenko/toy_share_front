@@ -2,7 +2,7 @@ import React, { useEffect} from 'react'
 import {Grid, Paper, Typography} from '@material-ui/core';
 import AddProduct from './addProduct';
 import CategoriesList from './categoriesList';
-import {categoriesAtom, productsAtom, pagesAtom, paramsAtom  } from '../atoms/appAtoms'
+import {categoriesAtom, productsAtom, pagesAtom, paramsAtom, emailAtom  } from '../atoms/appAtoms'
 import CategoriesApi from '../services/categoriesApi';
 import ProductsApi from '../services/productsApi';
 import ProductsList from './productsList';
@@ -15,6 +15,9 @@ export default function HomePage() {
   const [pages, setPages] = useAtom(pagesAtom)
   const [categories, setCategories] = useAtom(categoriesAtom)
   const [params, setParams] = useAtom(paramsAtom)
+  const [email, setEmail] = useAtom(emailAtom)
+
+  console.log('email ' + email)
 
   useEffect(() => {
     //console.log(products.length)
@@ -34,7 +37,7 @@ export default function HomePage() {
       (result) => {
         dispatchUpdateState(result.products, result.pages)
         if (result.user){
-          cookie.save('email', result.user.email, { path: '/' })
+          cookie.save('email', result.email, { path: '/' })
         }
       }
   )}
@@ -54,7 +57,7 @@ export default function HomePage() {
           </Grid>  
             <Grid item  xs={12} sm={6} md={10} lg={10} >      
               <Paper id='home_cont'> 
-                <AddProduct/>
+                {email ? <AddProduct/> : null}
                 <ProductsList/>
               </Paper>
             </Grid>  

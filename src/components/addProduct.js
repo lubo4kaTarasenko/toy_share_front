@@ -5,17 +5,14 @@ import { useAtom } from 'jotai'
 import { filesAtom } from '../atoms/appAtoms'
 import ProductsApi from '../services/productsApi';
 import CategoriesSelector from './categoriesSelector';
-import $ from 'jquery'
-
 
 export default function AddProduct() {
   const [files, setFiles] = useAtom( filesAtom)
   const [showForm, setShowForm] = useState(false)
 
-  //console.log(files)
-    return (      
-      showForm ? renderForm() : <Button onClick={() => {setShowForm(true)}} id='state_b' className='form_buttons'>Додати річ</Button>      
-    )
+  return (      
+    showForm ? renderForm() : <Button onClick={() => {setShowForm(true)}} id='state_b' className='form_buttons'>Додати річ</Button>      
+  )
 
   function renderForm(){
     return(

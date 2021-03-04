@@ -18,7 +18,19 @@
     font-size: 15px;
     font-weight: bold;
   }
+  .avatar{
+    width: 100px;
+    border-radius: 100%;
 
+  }
+  .profile{
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+  .MuiTab-wrapper {
+    font-size: 10px;
+    font-weight: bold;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -35,6 +47,23 @@
   #main .category_btn{
     font-size: small;
   }
+  .avatar{
+    width: 100px;
+    border-radius: 100%;
+
+  }
+  .profile_products{
+    padding-top: 20px;
+  }
+
+  .MuiTab-wrapper {
+    font-size: 6px;
+    font-weight: bold;
+  }
+}
+
+#main .profile_info{
+  text-align: center;
 }
 
 #home_cont{
@@ -153,4 +182,5 @@
 #state_b{
   margin-left: 30px;
 }
+
 
