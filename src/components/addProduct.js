@@ -1,16 +1,17 @@
-import {React, useEffect, useState} from 'react'
+import {React, useState} from 'react'
 import {Paper, TextField, TextareaAutosize, Button} from '@material-ui/core';
 import DropZone from './dropZone';
 import { useAtom } from 'jotai'
 import { filesAtom } from '../atoms/appAtoms'
 import ProductsApi from '../services/productsApi';
 import CategoriesSelector from './categoriesSelector';
-import { FormatBoldTwoTone } from '@material-ui/icons';
+import $ from 'jquery'
 
 
 export default function AddProduct() {
   const [files, setFiles] = useAtom( filesAtom)
   const [showForm, setShowForm] = useState(false)
+
   //console.log(files)
     return (      
       showForm ? renderForm() : <Button onClick={() => {setShowForm(true)}} id='state_b' className='form_buttons'>Додати річ</Button>      
@@ -38,9 +39,9 @@ export default function AddProduct() {
   function createProduct(){
     const name = document.getElementById('product_name').value
     const description = document.getElementById('description').value
-    const kind = document.querySelector('input[name="kind"]:checked').value;
-    const category =  document.getElementById('category').value
-    const subcategory =  document.getElementById('subcategory').value
+    const kind = document.querySelector('input[name="kind"]:checked').value
+    const category =  document.getElementById('category').innerText
+    const subcategory = document.getElementById('subcategory').innerText
     let data = new FormData()
     const product = {
       name: name,
@@ -57,12 +58,12 @@ export default function AddProduct() {
 
     data.append('product', JSON.stringify(product))
 
-    new ProductsApi().createProduct(data).done((result) => {
+    new ProductsApi().createProduct(data).done(() => {
       setShowForm(false)
       setFiles([])
       alert('Річ буде додана після перевірки адміністратором');
       }).fail((err) => {
-      console.log("error for file upload", err);      
+      console.log("error for creating product", err);      
       });
     }
   }

@@ -43,6 +43,7 @@
   margin-bottom: 30px;
   padding-top: 30px;
   overflow: hidden;
+  min-height: 550px;
 }
 .MuiAppBar-colorPrimary {
   background-color: white !important;
