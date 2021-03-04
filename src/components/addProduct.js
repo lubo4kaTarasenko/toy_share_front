@@ -24,9 +24,9 @@ export default function AddProduct() {
       <DropZone></DropZone>
         <i style={{fontSize: 'small'}}><b>Загружено {files.length}</b></i>
       <br/><br/>
-      <input type='radio' id='get' name='kind' value='get' checked/>
-      <label for='get'>Віддам</label>
-      <input type='radio' id='change' name='kind' value='change'/>
+      <input type='radio' id='get' name='kind' value='подарую' checked/>
+      <label for='get'>Подарую</label>
+      <input type='radio' id='change' name='kind' value='обміняю'/>
       <label for='change'>Обміняю</label>
       <br/>
       <Button className='form_buttons' onClick={() => createProduct() }> Зберегти </Button>

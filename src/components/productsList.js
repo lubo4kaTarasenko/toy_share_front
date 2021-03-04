@@ -24,7 +24,7 @@ export default function ProductList(props) {
                 <i>{product.category}/{product.subcategory}</i>
               </div >
               <div className='product_attr'>
-                <img src='/ava.png' width='100px' alt=''/>
+                <img src='/product.jpeg' width='100px' alt=''/>
               </div >
               <div className='product_attr'>
                 <h3>{product.kind}</h3>

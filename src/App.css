@@ -20,7 +20,7 @@
   }
   .avatar{
     width: 100px;
-    border-radius: 100%;
+    border-radius: 10%;
 
   }
   .profile{
@@ -30,6 +30,13 @@
   .MuiTab-wrapper {
     font-size: 10px;
     font-weight: bold;
+  }
+  #main .profile_buttons{
+    float: right;
+    margin-right: 30px;
+  }
+  .profile_ava{
+    margin-left: 40px;
   }
 }
 
@@ -62,9 +69,6 @@
   }
 }
 
-#main .profile_info{
-  text-align: center;
-}
 
 #home_cont{
   margin: auto;

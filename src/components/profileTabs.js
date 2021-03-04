@@ -74,7 +74,7 @@ export default function SimpleTabs() {
         <GiveProducts kind={'обміняю'} status={'published'}/>
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        <GiveProducts kind={['подарую', 'обміняю' ]} status={'unpublished'}/>
       </TabPanel>
     </div>
   );
