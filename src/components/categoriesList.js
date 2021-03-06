@@ -13,9 +13,9 @@ export default function CategoriesList() {
 
   return(
     <div id='categories'>
-      <div className="category_container, checked_category" id='undefined'>               
+      <div className="category_container checked_category" id='undefined'>               
           <IconButton className='category_btn'
-            onClick={() => {categoryChoose('')} }>
+            onClick={() => {categoryChoose('undefined')} }>
             <Toys className='category_icon' fontSize='large'/>
               All categories
           </IconButton>

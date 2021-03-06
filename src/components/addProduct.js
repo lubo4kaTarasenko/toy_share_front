@@ -29,16 +29,18 @@ export default function AddProduct() {
       <input type='radio' id='change' name='kind' value='обміняю'/>
       <label for='change'>Обміняю</label>
       <br/>
-      <Button className='form_buttons' onClick={() => createProduct() }> Зберегти </Button>
+      <Button className='form_buttons' id='save_product' onClick={() => createProduct() }> Зберегти </Button>
     </Paper>
     )
   }
   function createProduct(){
     const name = document.getElementById('product_name').value
+    if (name.length < 5) return alert ('Поле з назвою має бути мінімум 5 символів')
     const description = document.getElementById('description').value
     const kind = document.querySelector('input[name="kind"]:checked').value
     const category =  document.getElementById('category').innerText
     const subcategory = document.getElementById('subcategory').innerText
+    document.getElementById('save_product').disabled = true;
     let data = new FormData()
     const product = {
       name: name,
