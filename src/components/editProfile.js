@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import { TextField } from '@material-ui/core';
 import ProfileDropzone from './profileDropzone';
 import { useAtom } from 'jotai'
-import { avatarAtom} from '../atoms/appAtoms'
+import { avatarAtom, userAtom} from '../atoms/appAtoms'
 import UserApi from '../services/userApi';
 
 const useStyles = makeStyles((theme) => ({
@@ -19,6 +19,7 @@ export default function EditProfile() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [avatar, setAvatar] = useAtom( avatarAtom)
+  const [user, setUser] = useAtom(userAtom)
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -78,8 +79,10 @@ export default function EditProfile() {
    
     data.append('user', JSON.stringify(user))
 
-    new UserApi().editProfile(data).done(() => {
+    new UserApi().editProfile(data).done((response) => {
       setAvatar()
+      setUser(response.user)
+      handleClose()
       alert('Профайл успішно оновлено');
       }).fail((err) => {
       console.log('error updating profile');      

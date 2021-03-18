@@ -4,13 +4,13 @@ import ProfileTabs from './profileTabs';
 import cookie from 'react-cookies'
 import UserApi from '../services/userApi';
 import { useAtom } from 'jotai'
-import {emailAtom } from '../atoms/appAtoms'
+import {emailAtom, userAtom } from '../atoms/appAtoms'
 import { Redirect} from "react-router-dom";
 import EditProfile from './editProfile';
 
 export default function Profile() {
   const [email, setEmail] = useAtom(emailAtom)
-  const [user, setUser] = useState({})
+  const [user, setUser] = useAtom(userAtom)
   useEffect(() =>{loadUser()}, []) 
 
   function loadUser(){
