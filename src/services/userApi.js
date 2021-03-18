@@ -1,4 +1,5 @@
 import { fullPath } from "./baseUrl";
+import $ from 'jquery'
 
 export default class UserApi {
 
@@ -9,5 +10,22 @@ export default class UserApi {
       .catch(err => {
         console.log(err);
     });
-  }  
+  }
+
+  editProfile(data){
+    return $.ajax({
+      method: "PATCH",
+      url: fullPath("/api/user"),
+      data: data,
+      dataType: 'json',
+      cache: false,
+      processData: false,
+      contentType: false
+    })
+  }
+
+  profileInfo(){
+    return fetch(fullPath("/api/user"))
+    .then(res => res.json())
+  }
 }

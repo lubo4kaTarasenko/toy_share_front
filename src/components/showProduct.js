@@ -10,7 +10,7 @@ import {useEffect, useState} from 'react'
 //import ShowAllComments from './showAllComments';
 
 export default function ShowProduct(props) {  
-  const [product, setProduct] = useState({})
+  const [product, setProduct] = useState({ images: [] })
   // const [comments, setComments] = useState([])
   // const [newComment, setNewComment] = useState([])
   useEffect(() =>{loadProduct()}, []) 
@@ -32,7 +32,7 @@ export default function ShowProduct(props) {
           <Grid item xs={12} sm={4} md={4} lg={4}>
           <Paper className='show_product_paper'>
             <div className='product_show_img'>
-              {product.images.length > 0 ? <ProductImages/> : <img src='/product.jpeg' width='200px' alt=''/>}
+              {(product.images).length > 0 ? <ProductImages/> : <img src='/product.jpeg' width='200px' alt=''/>}
             </div>
           </Paper>
           </Grid>  

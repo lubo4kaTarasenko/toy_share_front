@@ -63,7 +63,7 @@ export default function SimpleTabs() {
           <Tab label="Подарую" {...a11yProps(0)} />
           <Tab label="Обміняю" {...a11yProps(1)} />
           <Tab label="Не опубліковані" {...a11yProps(2)} />
-          <Tab label="Коментарі" {...a11yProps(3)} />
+          <Tab label="Повідомлення" {...a11yProps(3)} />
           <Tab label="Історія" {...a11yProps(4)} />
         </Tabs>
       </AppBar>
