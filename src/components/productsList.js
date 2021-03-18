@@ -6,11 +6,9 @@ import { useState } from 'react'
 
 export default function ProductList(props) {
   const [showProduct, setShowProduct] = useState(null);
-  //const [products, setProducts] = useAtom(productsAtom)
-  
-  // if(showProduct) {
-  //   return productRedirect(showProduct.url_name)
-  // }
+  if(showProduct) {
+    return productRedirect(showProduct.url_name)
+  }
   return (
     <div id='products'>
       { props.products.map(product => {
@@ -24,10 +22,13 @@ export default function ProductList(props) {
                 <i>{product.category}/{product.subcategory}</i>
               </div >
               <div className='product_attr'>
-                <img src='/product.jpeg' width='100px' alt=''/>
+                {product.image ? <img src={product.image} width='100px' alt=''/> : <img src='/product.jpeg' width='100px' alt=''/>}
               </div >
               <div className='product_attr'>
                 <h3>{product.kind}</h3>
+              </div >
+              <div className='product_attr'>
+                <a href='#' style={{color: '#4b9dad'}}>{product.user}</a>
               </div >
         </Paper>  
       </div> 
@@ -37,9 +38,9 @@ export default function ProductList(props) {
       )}
     </div>
   )
-  // function productRedirect(url_name){  
-  //   return(
-  //     <Redirect push to={`/product/${url_name}`}/>
-  //   )
-  // }
+  function productRedirect(url_name){  
+    return(
+      <Redirect push to={`/product/${url_name}`}/>
+    )
+  }
 }

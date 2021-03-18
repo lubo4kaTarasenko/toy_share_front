@@ -15,9 +15,9 @@ export default function Header(){
     <AppBar position="static" style={{backgroundColor: pink}}> 
         <Toolbar className='nav_cont'> 
          <Grid container>
-            <Grid item xs={3} md={2} lg={3} className='header_item'> <h2>ToyShare</h2></Grid> 
-            <Grid item xs={3} md={2} lg={4} className='header_item'><SearchComponent/></Grid>
-            <Grid item xs={5} md={3} lg={5} className='header_item'>
+            <Grid item xs={3} sm={4} md={3} lg={3} className='header_item'> <h2>ToyShare</h2></Grid> 
+            <Grid item xs={9} sm={5} md={4} lg={4} className='header_item'><SearchComponent/></Grid>
+            <Grid item xs={12} sm={3} md={5} lg={5} className='header_item'>
               {isMobile ? forMobile() : forDesktop()}
             </Grid>
           </Grid>
@@ -30,7 +30,6 @@ export default function Header(){
           <Link to="/home"><Home className='header_buttons'/></Link>
           <a href={fullPath('/users/sign_in')}><AccountCircle className='header_buttons' /></a>                
           <Link to="/aboutUs"><Info className='header_buttons'/></Link>
-          <PowerSettingsNew className='header_buttons'/>
       </React.Fragment>
   )}
 

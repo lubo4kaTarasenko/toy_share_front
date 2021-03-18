@@ -14,6 +14,14 @@
   #add_product{
     width: 400px
   }
+  .show_product_paper{
+    height: 600px;
+    margin-bottom: 40px;
+  }
+  .show_product_paper .show{
+    padding-left: 30px;
+    padding-top: 20px
+  }
   #main .category_btn{
     font-size: 15px;
     font-weight: bold;
@@ -170,8 +178,8 @@
   margin-right: 15px;
 }
 #main .product_container{
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   float: left;
   margin-left: 30px;
   margin-top: 30px;

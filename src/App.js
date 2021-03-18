@@ -5,6 +5,7 @@ import Footer from './components/footer';
 import { BrowserRouter as Router, Switch,  Route } from "react-router-dom";
 import Profile from './components/profile';
 import AboutUs from './components/aboutUs';
+import ShowProduct from './components/showProduct';
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
         <Header/>         
         <Switch>    
           <Route path="/profile" component={Profile}/>
-          <Route path="/aboutUs" component={AboutUs} />   
+          <Route path="/aboutUs" component={AboutUs} />  
+          <Route path="/product/:url_name" component={ShowProduct} />    
           <Route path="/home" component={Home}/>
           <Route path="" component={Home}/>                          
         </Switch>              
