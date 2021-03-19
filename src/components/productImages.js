@@ -6,51 +6,33 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import { useAtom } from 'jotai'
+import {productImagesAtom} from '../atoms/appAtoms'
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-const tutorialSteps = [
-  {
-    imgPath:
-      '/sale.png',
-  },
-  {    
-    imgPath:
-      '/free.jpg',
-  },
-  {
-    imgPath:
-      '/gift.jpg',
-  
-  }
-];
-
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 1500,
+    maxWidth: 500,
     flexGrow: 1,
   },
-  header: {
-    display: 'flex',
-    alignItems: 'center',
-    height: 50,
-    paddingLeft: theme.spacing(4),
-    backgroundColor: theme.palette.background.default,
-  },
   img: {
-    height: 300,
     display: 'block',
-    maxWidth: 1500,
+    maxWidth: 500,
+    maxHeight: 500,
     overflow: 'hidden',
     width: '100%',    
   },
 }));
 
 function ProductImages() {
+  const [images, setImages] = useAtom(productImagesAtom)
+  const tutorialSteps = images.map((url)=> { return { imgPath: url } } )
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const maxSteps = tutorialSteps.length;
+
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);

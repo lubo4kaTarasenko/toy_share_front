@@ -9,11 +9,10 @@ export default function GiveProducts(props) {
   useEffect(() => {
     loadListOfProducts()
   }, [])
-  console.log(profileProducts)
-    return (
-      <Paper >
-        <ProductList products={profileProducts}/>                
-      </Paper>
+  return (
+    <Paper >
+      <ProductList products={profileProducts}/>                
+    </Paper>
   )
   function loadListOfProducts(){
     new ProfileProductsApi().getList(props.kind, props.status).then(

@@ -1,11 +1,11 @@
 import React from 'react';
 import ProductsApi from '../services/productsApi';
-import {ShoppingCart, Star } from '@material-ui/icons';
+import {ChildCare } from '@material-ui/icons';
 import {Paper, Grid, IconButton} from '@material-ui/core';
 import ProductImages from './productImages';
 import cookie from 'react-cookies'
 import { useAtom } from 'jotai'
-//import {cartAtom} from '../atoms/shopAtoms'
+import {productImagesAtom} from '../atoms/appAtoms'
 import {useEffect, useState} from 'react'
 //import ShowAllComments from './showAllComments';
 
@@ -14,12 +14,13 @@ export default function ShowProduct(props) {
   // const [comments, setComments] = useState([])
   // const [newComment, setNewComment] = useState([])
   useEffect(() =>{loadProduct()}, []) 
-  //const [cart, setCart] = useAtom(cartAtom)
+  const [images, setImages] = useAtom(productImagesAtom)
 
   function loadProduct(){
     new ProductsApi().getProduct(props.match.params.url_name).then(
       (result) => {
         setProduct(result.product);
+        setImages(result.product.images)
         // setComments(result.comments);
         // setNewComment(result.new_comment);
       },
@@ -41,13 +42,13 @@ export default function ShowProduct(props) {
               <div className='product_show_name show'><b>назва: </b> {product.name}</div>                    
               <div className='product_show_description show'><b>категорія: </b>{product.category}</div>
               <div className='product_show_country show'><b>підкатегорія: </b>{product.subcountry}</div> 
-              <div className='product_show_price show'><b>тип: </b>{product.kind} $ </div>
+              <div className='product_show_price show'><b>тип: </b>{product.kind} </div>
               <IconButton 
-                variant='contained' className='category_btn'
-                style={{color: 'green'}}
+                variant='outlined' className='category_btn'
+                style={{marginLeft: '20px'}}
                 >                     
-              <ShoppingCart  fontSize='large'/>
-                BUY
+              <ChildCare  fontSize='large'/>
+                Отримати
             </IconButton>
       
             </Paper>                

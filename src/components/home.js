@@ -17,10 +17,7 @@ export default function HomePage() {
   const [params, setParams] = useAtom(paramsAtom)
   const [email, setEmail] = useAtom(emailAtom)
 
-  console.log('email ' + email)
-
   useEffect(() => {
-    //console.log(products.length)
     loadListOfProducts()
     loadListOfCategories()
   }, [])
@@ -35,9 +32,6 @@ export default function HomePage() {
   function loadListOfProducts(){
     new ProductsApi().getListByParams(params).then(
       (result) => {
-        console.log({result: result});
-        console.log({products: result.products});
-
         dispatchUpdateState(result.products, result.pages)
         if (result.user){
           cookie.save('email', result.user, { path: '/' })

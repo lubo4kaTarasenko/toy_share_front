@@ -30,6 +30,7 @@ export default function AddProduct() {
       <label for='change'>Обміняю</label>
       <br/>
       <Button className='form_buttons' id='save_product' onClick={() => createProduct() }> Зберегти </Button>
+      <Button className='form_buttons' style={{background: '#bcf2e7', color: 'rgb(75 157 173)'}} onClick={() => setShowForm(false) }>Скасувати</Button>
     </Paper>
     )
   }

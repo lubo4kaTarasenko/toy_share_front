@@ -10,3 +10,4 @@ export const paramsAtom = atom({search: '', page: 1, category: '', subcategory: 
 export const emailAtom = atom(email)
 export const pagesAtom = atom(1)
 export const userAtom = atom({})
+export const productImagesAtom = atom([])

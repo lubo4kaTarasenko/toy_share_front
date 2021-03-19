@@ -4,12 +4,12 @@ import ProductsApi from '../services/productsApi';
 import { useState } from 'react'
 import { Button } from '@material-ui/core';
 import {DeleteForever} from '@material-ui/icons'
+import { useAtom } from 'jotai'
+import { emailAtom  } from '../atoms/appAtoms'
 
 export default function ProductList(props) {
   const [showProduct, setShowProduct] = useState(null);
-  //const [products, setProducts] = useState(props.products)
-  const products = props.products
-  console.log(products)
+  const [email, setEmail] = useAtom(emailAtom)
   if(showProduct) {
     return productRedirect(showProduct.url_name)
   }
@@ -33,7 +33,7 @@ export default function ProductList(props) {
                 </div>
                   <div className='product_attr'>
                     <h3>{product.kind} 
-                      <Button color='secondary' name='видалити' onClick={()=> deleteProduct(product.id)}><DeleteForever/></Button>
+                      {product.user == email ? deleteButton(product) : <></> }
                     </h3>
                   </div >
                   <div className='product_attr'>
@@ -47,6 +47,11 @@ export default function ProductList(props) {
       )}
     </div>
   )
+  function deleteButton(product){
+    return(
+      <Button color='secondary' name='видалити' onClick={()=> deleteProduct(product.id)}><DeleteForever/></Button>
+    )
+  }
   function productRedirect(url_name){  
     return(
       <Redirect push to={`/product/${url_name}`}/>
@@ -57,8 +62,7 @@ export default function ProductList(props) {
       new ProductsApi().deleteProduct(id).then(
         (result) => {
           alert('Продукт успішно видалений')
-          props.loadListOfProducts()
-          console.log(products)       
+          props.loadListOfProducts()     
         })
     }
   }
