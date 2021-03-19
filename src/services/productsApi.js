@@ -25,7 +25,10 @@ export default class ProductsApi{
   }
 
   getProduct(name){
-    return fetch(fullPath(`/product?name=${name}`))
-    .then(res => res.json())
+    return fetch(fullPath(`/product?name=${name}`)).then(res => res.json())
+  }
+
+  deleteProduct(id){
+    return fetch(fullPath(`/product?id=${id}`), {'method': 'DELETE'}).then(res => res.json())
   }
 }

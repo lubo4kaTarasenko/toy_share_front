@@ -35,9 +35,13 @@ export default function HomePage() {
   function loadListOfProducts(){
     new ProductsApi().getListByParams(params).then(
       (result) => {
+        console.log({result: result});
+        console.log({products: result.products});
+
         dispatchUpdateState(result.products, result.pages)
         if (result.user){
-          cookie.save('email', result.email, { path: '/' })
+          cookie.save('email', result.user, { path: '/' })
+          setEmail(result.user)
         }
       }
   )}
@@ -58,7 +62,7 @@ export default function HomePage() {
             <Grid item  xs={12} sm={6} md={10} lg={10} >      
               <Paper id='home_cont'> 
                 {email ? <AddProduct/> : null}
-                <ProductsList products={products}/>
+                <ProductsList products={products} loadListOfProducts={loadListOfProducts} />
               </Paper>
             </Grid>  
        
