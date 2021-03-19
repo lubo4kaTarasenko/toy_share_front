@@ -6,6 +6,7 @@ import { Button } from '@material-ui/core';
 import {DeleteForever} from '@material-ui/icons'
 import { useAtom } from 'jotai'
 import { emailAtom  } from '../atoms/appAtoms'
+import { Link } from "react-router-dom";
 
 export default function ProductList(props) {
   const [showProduct, setShowProduct] = useState(null);
@@ -37,7 +38,7 @@ export default function ProductList(props) {
                     </h3>
                   </div >
                   <div className='product_attr'>
-                    <a href='#' style={{color: '#4b9dad'}}>{product.user}</a>
+                    <Link to={`/userProfile/${product.user}`} style={{color: '#4b9dad'}}> {product.user}</Link>
                   </div >
               </Paper>  
             </div> 

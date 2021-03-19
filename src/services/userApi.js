@@ -28,4 +28,9 @@ export default class UserApi {
     return fetch(fullPath("/api/user"))
     .then(res => res.json())
   }
+
+  userProfileInfo(email){
+    return fetch(fullPath(`/api/user_profile?email=${email}`))
+    .then(res => res.json())
+  }
 }

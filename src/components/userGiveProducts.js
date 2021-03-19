@@ -4,7 +4,7 @@ import ProfileProductsApi from '../services/profileProductsApi';
 import ProductList from './productsList';
 
 
-export default function GiveProducts(props) {
+export default function UserGiveProducts(props) {
   const[profileProducts, setProfileProducts] = useState([])
   useEffect(() => {
     loadListOfProducts()
@@ -15,7 +15,7 @@ export default function GiveProducts(props) {
     </Paper>
   )
   function loadListOfProducts(){
-    new ProfileProductsApi().getList(props.kind, props.status).then(
+    new ProfileProductsApi().userGetList(props.kind, props.status, props.email).then(
       (result) => {
         setProfileProducts(result.products)          
       })
