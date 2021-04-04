@@ -7,12 +7,12 @@ import cookie from 'react-cookies'
 import { useAtom } from 'jotai'
 import {productImagesAtom} from '../atoms/appAtoms'
 import {useEffect, useState} from 'react'
-//import ShowAllComments from './showAllComments';
+import ShowAllComments from './showAllComments';
 
 export default function ShowProduct(props) {  
   const [product, setProduct] = useState({ images: [] })
-  // const [comments, setComments] = useState([])
-  // const [newComment, setNewComment] = useState([])
+  const [comments, setComments] = useState([])
+  const [newComment, setNewComment] = useState([])
   useEffect(() =>{loadProduct()}, []) 
   const [images, setImages] = useAtom(productImagesAtom)
 
@@ -21,8 +21,8 @@ export default function ShowProduct(props) {
       (result) => {
         setProduct(result.product);
         setImages(result.product.images)
-        // setComments(result.comments);
-        // setNewComment(result.new_comment);
+        setComments(result.comments);
+        setNewComment(result.new_comment);
       },
     )
   }
@@ -54,7 +54,7 @@ export default function ShowProduct(props) {
             </Paper>                
           </Grid>                       
         </Grid>  
-        {/* <Grid container >        
+        <Grid container >        
             <Grid item xs={12} sm={2} md={12} lg={2} ></Grid>
             <Grid item xs={12} sm={8} md={8} lg={8}>
               {
@@ -62,32 +62,7 @@ export default function ShowProduct(props) {
                                                comments={comments} newComment={newComment} />
               }
             </Grid> 
-        </Grid>        */}
+        </Grid>       
       </div>
   )
-
-  // function addToCart(){
-  //   let currentCart = JSON.parse(JSON.stringify(cart))
-  //   if(currentCart[product.id]){
-  //     currentCart[product.id].count++
-  //   }
-  //   else{
-  //     currentCart[product.id] = { 
-  //       'price': product.price, 
-  //       'count': 1,
-  //       'name': product.name,
-  //       'id': product.id
-  //     }
-  //   }
-  //   cookie.save('cart', currentCart, { path: '/' })
-  //   setCart(currentCart)
-  // }
-
-  // function addedNumber() {
-  //   if(cart[product.id]){
-  //     return `Added to cart ${ cart[product.id].count > 1 ? `x${cart[product.id].count}` : '' }`
-  //   } else {
-  //     return '';
-  //   }
-  // }
 }
