@@ -12,7 +12,6 @@ import ShowAllComments from './showAllComments';
 export default function ShowProduct(props) {  
   const [product, setProduct] = useState({ images: [] })
   const [comments, setComments] = useState([])
-  const [newComment, setNewComment] = useState([])
   useEffect(() =>{loadProduct()}, []) 
   const [images, setImages] = useAtom(productImagesAtom)
 
@@ -22,12 +21,11 @@ export default function ShowProduct(props) {
         setProduct(result.product);
         setImages(result.product.images)
         setComments(result.comments);
-        setNewComment(result.new_comment);
       },
     )
   }
   return(  
-    <div>    
+    <div className='all_containers'>    
         <Grid container  style={{paddingTop: '20px'}}>     
           <Grid item xs={12} sm={2} md={12} lg={2} ></Grid>     
           <Grid item xs={12} sm={4} md={4} lg={4}>
@@ -59,7 +57,7 @@ export default function ShowProduct(props) {
             <Grid item xs={12} sm={8} md={8} lg={8}>
               {
                 product.id && <ShowAllComments loadProduct={ loadProduct } product_id={product.id} 
-                                               comments={comments} newComment={newComment} />
+                                               comments={comments} />
               }
             </Grid> 
         </Grid>       

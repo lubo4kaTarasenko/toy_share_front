@@ -1,8 +1,8 @@
 @media screen and (min-width: 600px) {
-  #home_cont{
+  #main .all_containers{
+    min-height: 700px;
     margin-left: 30px;
     width: 95%;
-  
   }
   #add_product{
     margin-left: 20px;
@@ -15,7 +15,7 @@
     width: 400px
   }
   .show_product_paper{
-    height: 600px;
+    height: 500px;
     margin-bottom: 40px;
   }
   .show_product_paper .show{
@@ -75,16 +75,14 @@
     font-size: 6px;
     font-weight: bold;
   }
-}
+} 
 
-
-#home_cont{
+#main .all_containers{
   margin: auto;
   margin-top: 30px;
   margin-bottom: 30px;
   padding-top: 30px;
   overflow: hidden;
-  min-height: 550px;
 }
 .MuiAppBar-colorPrimary {
   background-color: white !important;
@@ -122,10 +120,10 @@
 #main .footer_c{
   padding-bottom: 20px;
 }
-#home_cont ul{
+#main .all_containers ul{
   color:  rgb(65 157 173)
 }
-#home_cont li{
+#main .all_containers li{
   text-align: justify;
   margin-left: 50px;
   margin-right: 40px;
@@ -194,5 +192,9 @@
 #state_b{
   margin-left: 30px;
 }
-
+.comment_cont{
+  border: 1px solid #419eb0;
+  margin: 10px;
+  padding: 10px;
+}
 

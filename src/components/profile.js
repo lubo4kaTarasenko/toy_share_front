@@ -22,7 +22,7 @@ export default function Profile() {
   }
   if(email === '' || !email) return <Redirect push to={'/'} />
     return (
-      <Paper id='home_cont'>
+      <Paper  className='all_containers'>
         <Grid container style={{paddingTop: '30px', background: '#f2bfcaa3', marginTop: '-30px'}}>
           <Grid item xs={6} sm={3} md={3} lg={2}  className='profile_info'>     
             <div className='profile_ava'>
