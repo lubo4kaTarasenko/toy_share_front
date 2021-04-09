@@ -1,19 +1,22 @@
 import React from 'react';
 import ProductsApi from '../services/productsApi';
+import ProfileProductsApi from '../services/profileProductsApi';
 import {ChildCare } from '@material-ui/icons';
 import {Paper, Grid, IconButton} from '@material-ui/core';
 import ProductImages from './productImages';
 import cookie from 'react-cookies'
 import { useAtom } from 'jotai'
-import {productImagesAtom} from '../atoms/appAtoms'
+import {productImagesAtom, emailAtom} from '../atoms/appAtoms'
 import {useEffect, useState} from 'react'
 import ShowAllComments from './showAllComments';
+
 
 export default function ShowProduct(props) {  
   const [product, setProduct] = useState({ images: [] })
   const [comments, setComments] = useState([])
   useEffect(() =>{loadProduct()}, []) 
   const [images, setImages] = useAtom(productImagesAtom)
+  const [email, setEmail] = useAtom(emailAtom)
 
   function loadProduct(){
     new ProductsApi().getProduct(props.match.params.url_name).then(
@@ -40,15 +43,10 @@ export default function ShowProduct(props) {
               <div className='product_show_name show'><b>назва: </b> {product.name}</div>                    
               <div className='product_show_description show'><b>категорія: </b>{product.category}</div>
               <div className='product_show_country show'><b>підкатегорія: </b>{product.subcountry}</div> 
-              <div className='product_show_price show'><b>тип: </b>{product.kind} </div>
-              <IconButton 
-                variant='outlined' className='category_btn'
-                style={{marginLeft: '20px'}}
-                >                     
-              <ChildCare  fontSize='large'/>
-                Отримати
-            </IconButton>
-      
+              <div className='product_show_price show'><b>тип: </b>{product.kind} </div>                                 
+              {product.user == email ?  <></> : 
+                <IconButton  variant='outlined' className='category_btn' style={{marginLeft: '20px'}} onClick={()=>{getThing(product)}}>
+                <ChildCare  fontSize='large'/> Отримати </IconButton> }
             </Paper>                
           </Grid>                       
         </Grid>  
@@ -63,4 +61,19 @@ export default function ShowProduct(props) {
         </Grid>       
       </div>
   )
+
+  function getThing(product){
+    if(product.kind == 'подарую'){
+      new ProductsApi().wannaThing(product.id).then(
+        (result) => {
+          console.log('yep')              
+        })
+    }
+    else{
+      new ProfileProductsApi().getList('обміняю', 'published').then(
+        (result) => {
+          console.log('yep')        
+        })
+    }
+  }
 }
