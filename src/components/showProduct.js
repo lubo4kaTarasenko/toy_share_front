@@ -1,14 +1,14 @@
 import React from 'react';
 import ProductsApi from '../services/productsApi';
 import ProfileProductsApi from '../services/profileProductsApi';
-import {ChildCare } from '@material-ui/icons';
+import {ChildCare, CropLandscapeOutlined } from '@material-ui/icons';
 import {Paper, Grid, IconButton} from '@material-ui/core';
 import ProductImages from './productImages';
-import cookie from 'react-cookies'
 import { useAtom } from 'jotai'
 import {productImagesAtom, emailAtom} from '../atoms/appAtoms'
 import {useEffect, useState} from 'react'
 import ShowAllComments from './showAllComments';
+import SelectToChange  from './selectToChange';
 
 
 export default function ShowProduct(props) {  
@@ -17,6 +17,7 @@ export default function ShowProduct(props) {
   useEffect(() =>{loadProduct()}, []) 
   const [images, setImages] = useAtom(productImagesAtom)
   const [email, setEmail] = useAtom(emailAtom)
+  const [productsToChange, setProductsToChange] = useState([])
 
   function loadProduct(){
     new ProductsApi().getProduct(props.match.params.url_name).then(
@@ -47,6 +48,7 @@ export default function ShowProduct(props) {
               {product.user == email ?  <></> : 
                 <IconButton  variant='outlined' className='category_btn' style={{marginLeft: '20px'}} onClick={()=>{getThing(product)}}>
                 <ChildCare  fontSize='large'/> Отримати </IconButton> }
+              { productsToChange.length > 0 ? <SelectToChange products={productsToChange}/> : <button>Stupid</button>}
             </Paper>                
           </Grid>                       
         </Grid>  
@@ -72,7 +74,9 @@ export default function ShowProduct(props) {
     else{
       new ProfileProductsApi().getList('обміняю', 'published').then(
         (result) => {
-          console.log('yep')        
+          //result.products.length > 0 ? setProductsToChange(result.products) :  setProductsToChange("Ви ще не додали речей для обміну")    
+          console.log(result)
+          setProductsToChange((result.products || []).length > 0 ? result.products : "Ви ще не додали речей для обміну") 
         })
     }
   }
