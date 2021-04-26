@@ -208,3 +208,6 @@
   font-weight: bold;
 }
 
+.notification_date{
+  float: right
+}
