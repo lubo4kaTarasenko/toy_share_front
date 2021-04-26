@@ -7,6 +7,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import GiveProducts from './giveProducts';
+import MyNotifications from './myNotifications';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -64,7 +65,6 @@ export default function ProfileTabs() {
           <Tab label="Обміняю" {...a11yProps(1)} />
           <Tab label="Не опубліковані" {...a11yProps(2)} />
           <Tab label="Повідомлення" {...a11yProps(3)} />
-          <Tab label="Історія" {...a11yProps(4)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
@@ -75,6 +75,9 @@ export default function ProfileTabs() {
       </TabPanel>
       <TabPanel value={value} index={2}>
         <GiveProducts kind={['подарую', 'обміняю' ]} status={'unpublished'}/>
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <MyNotifications/>
       </TabPanel>
     </div>
   );

@@ -36,6 +36,9 @@ export default class ProductsApi{
     return fetch(fullPath(`/product/wanna_thing?id=${id}`), {'method': 'GET'}).then(res => res.json())
   }
 
+  thingToChange(id, change_id){
+    return fetch(fullPath(`/product/thing_to_change?id=${id}&change_id=${change_id}`), {'method': 'GET'}).then(res => res.json())
+  }
   // changeThing(id){
   //   return fetch(fullPath(`/product/get_it?id=${id}`), {'method': 'GET'}).then(res => res.json())
   // }

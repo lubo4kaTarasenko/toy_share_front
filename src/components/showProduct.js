@@ -48,7 +48,7 @@ export default function ShowProduct(props) {
               {product.user == email ?  <></> : 
                 <IconButton  variant='outlined' className='category_btn' style={{marginLeft: '20px'}} onClick={()=>{getThing(product)}}>
                 <ChildCare  fontSize='large'/> Отримати </IconButton> }
-              { productsToChange.length > 0 ? <SelectToChange products={productsToChange}/> : <button>Stupid</button>}
+              { productsToChange.length > 0 ? <SelectToChange products={productsToChange} id={product.id}/> : <button>Stupid</button>}
             </Paper>                
           </Grid>                       
         </Grid>  

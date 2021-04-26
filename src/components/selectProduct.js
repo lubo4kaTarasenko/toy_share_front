@@ -5,6 +5,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import { Button } from '@material-ui/core';
+import ProductsApi from '../services/productsApi';
 
 export default function SelectProduct(props) {
   const [value, setValue] = React.useState(props.products[0].id);
@@ -21,9 +22,16 @@ export default function SelectProduct(props) {
           return (<FormControlLabel key={product.id} value={product.id} checked={ product.id == value }  control={<Radio />} label={product.name} />)
         })}
       </RadioGroup>
-      <Button variant="contained" color="primary">
+      <Button variant="contained" color="primary" onClick={confirmSelect(value)}>
         Готово
       </Button>
     </FormControl>
   );
+
+  function confirmSelect(){
+    new ProductsApi().thingToChange(props.id, value).then(
+      (result) => {
+        console.log('yep')              
+    })
+  }
 }

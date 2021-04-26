@@ -197,4 +197,14 @@
   margin: 10px;
   padding: 10px;
 }
+.notification{
+  padding: 20px;
+  box-shadow: 0 0 6px #6ffded;
+  margin-top: 20px;
+
+}
+.new_notification{
+  background: rgb(163 238 222 / 19%);
+  font-weight: bold;
+}
 

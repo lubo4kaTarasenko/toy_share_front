@@ -46,7 +46,7 @@ export default function SelectToChange(props) {
         }}
       >
         <Typography className={classes.typography}>
-          {typeof(props.products) == 'string' ? <p>{props.products}</p> : <SelectProduct products={props.products}/>}
+          {typeof(props.products) == 'string' ? <p>{props.products}</p> : <SelectProduct products={props.products} id={props.id}/>}
         </Typography>
       </Popover>
     </div>
