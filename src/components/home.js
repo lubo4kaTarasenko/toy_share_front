@@ -9,6 +9,7 @@ import ProductsList from './productsList';
 import { useAtom } from 'jotai'
 import cookie from 'react-cookies'
 import Pagination from '@material-ui/lab/Pagination';
+import TelegramButton from './telegramButton';
 
 export default function HomePage() {
   const [products, setProducts] = useAtom(productsAtom)
@@ -55,7 +56,7 @@ export default function HomePage() {
           </Grid>  
             <Grid item  xs={12} sm={6} md={10} lg={10} >      
               <Paper className='all_containers'> 
-                {email ? <AddProduct/> : null}
+                {email ? (<div><AddProduct/> <TelegramButton/></div>) : null}
                 <ProductsList products={products} loadListOfProducts={loadListOfProducts} />
               </Paper>
             </Grid>  
