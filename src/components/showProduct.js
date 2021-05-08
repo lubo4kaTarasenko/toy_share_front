@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductsApi from '../services/productsApi';
 import ProfileProductsApi from '../services/profileProductsApi';
-import {ChildCare, CropLandscapeOutlined } from '@material-ui/icons';
+import {ChildCare} from '@material-ui/icons';
 import {Paper, Grid, IconButton} from '@material-ui/core';
 import ProductImages from './productImages';
 import { useAtom } from 'jotai'
@@ -48,7 +48,7 @@ export default function ShowProduct(props) {
               {product.user == email ?  <></> : 
                 <IconButton  variant='outlined' className='category_btn' style={{marginLeft: '20px'}} onClick={()=>{getThing(product)}}>
                 <ChildCare  fontSize='large'/> Отримати </IconButton> }
-              { productsToChange.length > 0 ? <SelectToChange products={productsToChange} id={product.id}/> : <button>Stupid</button>}
+              { productsToChange.length > 0 ? <SelectToChange products={productsToChange} id={product.id}/> : <></>}
             </Paper>                
           </Grid>                       
         </Grid>  

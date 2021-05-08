@@ -28,10 +28,11 @@ export default function SelectToChange(props) {
 
   return (
     <div>
-      <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>
+      <Button aria-describedby={id} variant="contained" onClick={handleClick} style={{marginLeft: '30px', background:'#4a9daf', color: 'white'}}>
         Обрати річ для обміну
       </Button>
       <Popover
+        className='popover_change_product'
         id={id}
         open={open}
         anchorEl={anchorEl}

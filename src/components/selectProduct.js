@@ -16,13 +16,13 @@ export default function SelectProduct(props) {
 
   return (
     <FormControl component="fieldset">
-      <FormLabel component="legend">{value}</FormLabel>
+      <FormLabel component="legend"></FormLabel>
       <RadioGroup aria-label="product" name="product" value={value} onChange={handleChange}>
         {props.products.map(product => {
           return (<FormControlLabel key={product.id} value={product.id} checked={ product.id == value }  control={<Radio />} label={product.name} />)
         })}
       </RadioGroup>
-      <Button variant="contained" color="primary" onClick={confirmSelect(value)}>
+      <Button variant="contained"  onClick={confirmSelect(value)} style={{marginLeft: '30px', background:'#4a9daf', color: 'white'}}>
         Готово
       </Button>
     </FormControl>

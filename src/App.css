@@ -75,6 +75,9 @@
     font-size: 6px;
     font-weight: bold;
   }
+  .show{
+    padding: 20px;
+  }
 } 
 
 #main .all_containers{

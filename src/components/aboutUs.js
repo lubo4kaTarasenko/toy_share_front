@@ -4,7 +4,7 @@ import {Paper} from '@material-ui/core';
 export default function AboutUs() {
 
     return (
-      <Paper  className='all_containers'>     
+      <Paper  className='all_containers' style={{height: '650px'}}>     
           <ul><b>ToyShare - про що це?</b></ul>
               <li>Це система, яка допомагає людям обмінюватися або дарувати дитячі іграшки та речі.</li>
           <ul><b>Навіщо це?</b></ul>
